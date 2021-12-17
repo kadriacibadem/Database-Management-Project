@@ -33,6 +33,11 @@ public class StaffController {
         return this.staffService.add(staff);
     }
 
+    @PostMapping("/delete")
+    public Result delete(@RequestBody Staff staff){
+        return this.staffService.delete(staff);
+    }
+
 
 
 

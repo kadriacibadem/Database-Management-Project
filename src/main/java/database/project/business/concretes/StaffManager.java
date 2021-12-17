@@ -36,4 +36,12 @@ public class StaffManager implements StaffService {
         this.staffDao.save(staff);
         return new SuccessResult("Eleman eklendi");
     }
+
+    @Override
+    public Result delete(Staff staff) {
+        this.staffDao.delete(staff);
+        return new SuccessResult("Eleman silindi");
+    }
+
+
 }

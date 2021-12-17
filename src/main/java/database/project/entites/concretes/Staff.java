@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Staff")
 @NoArgsConstructor // lombak argümansız constructor oluşturur
-@AllArgsConstructor // lombak tüm argümanları kullanarak constructor oluşturur adsasd
+@AllArgsConstructor // lombak tüm argümanları kullanarak constructor oluşturur
 public class Staff {
 
     @Id

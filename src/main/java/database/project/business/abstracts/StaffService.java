@@ -9,4 +9,6 @@ import java.util.List;
 public interface StaffService {
     public DataResult<List<Staff>> getAll();
     Result add(Staff staff);
+    Result delete(Staff staff);
+
 }
