@@ -1,10 +1,14 @@
 package database.project.entites.concretes;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 @Data
 @Entity
@@ -15,7 +19,7 @@ public class Staff {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // id'nin nasıl arttırıldığını gösterir
-    @Column(name = "id")
+    @Column(name = "staffId")
     private int id;
 
     @Column(name = "tcno")
@@ -42,6 +46,7 @@ public class Staff {
     @Column(name = "educationstatus")
     private String educationStatus;
 
-
+    @OneToMany(mappedBy = "staff")
+    private List<Disease> diseases;
 
 }
