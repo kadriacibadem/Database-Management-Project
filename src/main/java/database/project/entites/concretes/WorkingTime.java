@@ -31,7 +31,6 @@ public class WorkingTime {
 
 
     @Column(name = "exitTime")
-
     private Date exitTime;
 
     @ManyToOne
