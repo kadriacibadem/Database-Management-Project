@@ -1,11 +1,9 @@
 package database.project.entites.concretes;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -48,5 +46,8 @@ public class Staff {
 
     @OneToMany(mappedBy = "staff")
     private List<Disease> diseases;
+
+    @OneToMany(mappedBy = "staffHobbies")
+    private List<Hobbies> hobbies;
 
 }

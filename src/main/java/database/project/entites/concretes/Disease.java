@@ -1,10 +1,13 @@
 package database.project.entites.concretes;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -22,7 +25,8 @@ public class Disease {
     @Column(name = "diseaseName")
     private String diseaseName;
 
-    // private Date diseaseDate;
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
+    private Date diseaseDate;
 
     @ManyToOne
     @JoinColumn(name = "staffId")
