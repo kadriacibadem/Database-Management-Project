@@ -50,4 +50,7 @@ public class Staff {
     @OneToMany(mappedBy = "staffHobbies")
     private List<Hobbies> hobbies;
 
+    @OneToMany(mappedBy = "staffVaccines")
+    private List<Vaccine> vaccines;
+
 }
