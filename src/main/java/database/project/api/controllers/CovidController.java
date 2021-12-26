@@ -1,13 +1,13 @@
 package database.project.api.controllers;
 
 import database.project.business.abstracts.CovidService;
+import database.project.core.utilites.results.DataResult;
 import database.project.core.utilites.results.Result;
 import database.project.entites.concretes.Covid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/covid")
@@ -27,6 +27,11 @@ public class CovidController {
     @PostMapping("/delete")
     public Result delete(@RequestBody Covid covid){
         return this.covidService.delete(covid);
+    }
+
+    @PostMapping("/getall")
+    public DataResult<List<Covid>> getAll() {
+        return this.covidService.getAll();
     }
 
 

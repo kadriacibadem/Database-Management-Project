@@ -1,5 +1,6 @@
 package database.project.entites.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "Hobbies")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","hobbies","vaccines","workingTime","covid","recipes"})
 public class Hobbies {
 
     @Id

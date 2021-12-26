@@ -1,6 +1,7 @@
 package database.project.entites.concretes;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @Table(name = "Staff")
 @NoArgsConstructor // lombak argümansız constructor oluşturur
 @AllArgsConstructor // lombak tüm argümanları kullanarak constructor oluşturur
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","diseases","hobbies","vaccines","workingTime","covid"})
 public class Staff {
 
     @Id

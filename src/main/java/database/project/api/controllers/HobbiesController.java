@@ -2,13 +2,13 @@ package database.project.api.controllers;
 
 
 import database.project.business.abstracts.HobbiesService;
+import database.project.core.utilites.results.DataResult;
 import database.project.core.utilites.results.Result;
 import database.project.entites.concretes.Hobbies;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/hobbies")
@@ -29,6 +29,12 @@ public class HobbiesController {
     @PostMapping("/delete")
     public Result delete(@RequestBody Hobbies hobbies){
         return this.hobbiesService.delete(hobbies);
+    }
+
+    @GetMapping("/getall")
+    public DataResult<List<Hobbies>> getAll(){
+        return this.hobbiesService.getAll();
+
     }
 
 

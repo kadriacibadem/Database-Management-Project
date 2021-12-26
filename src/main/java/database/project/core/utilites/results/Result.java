@@ -4,6 +4,7 @@ public class Result {
 
     private boolean success;
     private String message;
+    private float covidRateByVaccineStatus;
 
 
     public Result(boolean success){
@@ -12,6 +13,10 @@ public class Result {
 
     public Result(boolean success, String message){
         this(success);
+        this.message = message;
+    }
+
+    public Result(String message){
         this.message = message;
     }
 
