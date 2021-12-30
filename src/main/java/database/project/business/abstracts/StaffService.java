@@ -5,6 +5,7 @@ import database.project.core.utilites.results.Result;
 import database.project.core.utilites.results.SuccessDataResult;
 import database.project.dataAccess.dtos.CovidWithStaffDto;
 import database.project.dataAccess.dtos.StaffWithDiseaseCovidRecipeDto;
+import database.project.dataAccess.dtos.StaffWithDiseaseRecipeDto;
 import database.project.dataAccess.dtos.StaffWithVaccineCovidDisease;
 import database.project.entites.concretes.Staff;
 
@@ -16,24 +17,25 @@ public interface StaffService {
     Result delete(Staff staff);
 
 
-    DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsLisans();
-    DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsYuksekLisans();
-    DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsDoktora();
-
-
-    //DataResult<List<DiseaseWithStaffDto>> getDiseaseWithStaffDetails();
-
+    DataResult<List<CovidWithStaffDto>> getCovidWithStaffEducationDetails(String education);
 
 
     DataResult<List<StaffWithDiseaseCovidRecipeDto>> getStaffWithDiseaseCovidRecipeDetails(String medicine);
+    DataResult<List<StaffWithDiseaseRecipeDto>> getStaffWithDiseaseNoCovidRecipeDetails(String medicine);
 
 
     SuccessDataResult<List<StaffWithVaccineCovidDisease>> getStaffWithVaccineCovidDisease(String disease);
 
 
     SuccessDataResult<List<Staff>> getMost3MedicineCovidStatus();
+    SuccessDataResult<List<Staff>> getMost3MedicineNoCovidStatus();
 
     Float covidRateByVaccineStatus();
 
     Float covidRateByNoVaccineStatus();
+
+    SuccessDataResult<List<Staff>> getMostDiseaseStaff();
+    SuccessDataResult<List<Staff>> getMostDiseaseStaffNoCovid();
+
+
 }

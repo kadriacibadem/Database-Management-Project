@@ -8,6 +8,7 @@ import database.project.core.utilites.results.SuccessResult;
 import database.project.dataAccess.abstracts.DiseaseDao;
 import database.project.dataAccess.dtos.DiseaseWithStaffDto;
 import database.project.entites.concretes.Disease;
+import database.project.entites.concretes.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +54,8 @@ public class DiseaseManager implements DiseaseService {
         return
                 new SuccessDataResult<List<Disease>>(this.diseaseDao.getMost3DiseaseOffCity(city),"Seçilen şehirde doğan elemanlar arasında en sık görülen 3 hastalık");
     }
+
+
 
 
 }

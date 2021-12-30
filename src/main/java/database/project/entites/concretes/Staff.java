@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,8 +13,8 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "Staff")
-@NoArgsConstructor // lombak argümansız constructor oluşturur
-@AllArgsConstructor // lombak tüm argümanları kullanarak constructor oluşturur
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","diseases","hobbies","vaccines","workingTime","covid"})
 public class Staff {
 
@@ -43,6 +44,7 @@ public class Staff {
     @Column(name = "salary")
     private int salary;
 
+
     @Column(name = "educationstatus")
     private String educationStatus;
 
@@ -60,5 +62,7 @@ public class Staff {
 
     @OneToMany(mappedBy = "staffCovid")
     private List<Covid> covid;
+
+
 
 }

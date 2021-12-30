@@ -3,6 +3,7 @@ package database.project.api.controllers;
 import database.project.business.abstracts.RecipeService;
 import database.project.core.utilites.results.DataResult;
 import database.project.core.utilites.results.Result;
+import database.project.core.utilites.results.SuccessDataResult;
 import database.project.entites.concretes.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,11 @@ public class RecipeController {
     public DataResult<List<Recipe>> getAll(){
         return this.recipeService.getAll();
 
+    }
+
+    @GetMapping("/soru20")
+    public SuccessDataResult<List<Recipe>> getRecipeWithDisease(){
+        return this.recipeService.getDiseaseWithRecipe();
     }
 
 }

@@ -38,4 +38,14 @@ public class VaccineController {
 
     }
 
+    @GetMapping("/soru17")
+    public DataResult<List<Float>> getBiontech(){
+        return this.vaccineService.getBiontech();
+    }
+
+    @GetMapping("/soru17sinovac")
+    public DataResult<List<Float>> getSinovac(){
+        return this.vaccineService.getSinovac();
+    }
+
 }

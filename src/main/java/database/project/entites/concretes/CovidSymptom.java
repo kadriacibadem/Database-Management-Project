@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class CovidSymptom {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // id'nin nasıl arttırıldığını gösterir
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "covidSymptomId")
     private int id;
 

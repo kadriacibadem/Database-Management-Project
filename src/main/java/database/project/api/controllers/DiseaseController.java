@@ -7,6 +7,7 @@ import database.project.core.utilites.results.Result;
 import database.project.core.utilites.results.SuccessDataResult;
 import database.project.dataAccess.dtos.DiseaseWithStaffDto;
 import database.project.entites.concretes.Disease;
+import database.project.entites.concretes.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,9 +44,11 @@ public class DiseaseController {
     public SuccessDataResult<List<Disease>> getMost3Disease(){
         return this.diseaseService.getMost3Disease();
     }
+
     @GetMapping("/soru7")
     public SuccessDataResult<List<Disease>> getMost3DiseaseOffCity(String city){
         return this.diseaseService.getMost3DiseaseOffCity(city);
     }
+
 
 }

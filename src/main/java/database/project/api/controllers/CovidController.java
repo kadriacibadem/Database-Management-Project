@@ -3,6 +3,7 @@ package database.project.api.controllers;
 import database.project.business.abstracts.CovidService;
 import database.project.core.utilites.results.DataResult;
 import database.project.core.utilites.results.Result;
+import database.project.dataAccess.dtos.CovidWithStaffDto;
 import database.project.entites.concretes.Covid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +30,15 @@ public class CovidController {
         return this.covidService.delete(covid);
     }
 
-    @PostMapping("/getall")
+    @GetMapping("/getall")
     public DataResult<List<Covid>> getAll() {
         return this.covidService.getAll();
+    }
+
+
+    @GetMapping("/soru13")
+    public DataResult<List<CovidWithStaffDto>> getCovidWithBloodGroup(String bloodGroup){
+        return this.covidService.getCovidWithBloodGroup(bloodGroup);
     }
 
 

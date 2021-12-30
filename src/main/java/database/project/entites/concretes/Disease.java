@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "Disease")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","recipes"}) // ignore recipes loop
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","recipes"})
 public class Disease {
 
     @Id

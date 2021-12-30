@@ -1,15 +1,14 @@
 package database.project.entites.concretes;
 
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 @Data
 @Entity
@@ -29,11 +28,13 @@ public class WorkingTime {
 
 
     @Column(name = "enterTime")
-    private Date enterTime;
+    @JsonFormat(timezone="GMT+03:00")
+    private LocalDateTime enterTime;
 
 
     @Column(name = "exitTime")
-    private Date exitTime;
+    @JsonFormat(timezone="GMT+03:00")
+    private LocalDateTime exitTime;
 
     @ManyToOne
     @JoinColumn(name = "staffId")

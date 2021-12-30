@@ -9,8 +9,9 @@ import java.util.List;
 public interface CovidSymptomDao extends JpaRepository<CovidSymptom,Integer> {
 
 
-    @Query(nativeQuery = true,value = "Select Top 3 symptom, Count(CovidId) From CovidSymptom Group BY symptom Order BY Count(covidId)DESC"
-            )
+    @Query(nativeQuery = true,value = "Select cs.* From CovidSymptom cs, Covid c where c.covidId = cs.covidId and cs.symptom IN (Select TOP 3 symptom From CovidSymptom GROUP by symptom order by Count(*) desc)")
     List<CovidSymptom> getMost3SymptomOffCovid();
+
+
 
 }

@@ -4,8 +4,10 @@ package database.project.api.controllers;
 import database.project.business.abstracts.StaffService;
 import database.project.core.utilites.results.DataResult;
 import database.project.core.utilites.results.Result;
+import database.project.core.utilites.results.SuccessDataResult;
 import database.project.dataAccess.dtos.CovidWithStaffDto;
 import database.project.dataAccess.dtos.StaffWithDiseaseCovidRecipeDto;
+import database.project.dataAccess.dtos.StaffWithDiseaseRecipeDto;
 import database.project.dataAccess.dtos.StaffWithVaccineCovidDisease;
 import database.project.entites.concretes.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,38 +43,50 @@ public class StaffController {
 
 
 
-    @GetMapping("/lisans")
-    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsLisans(){
-        return this.staffService.getCovidWithStaffDetailsLisans();
-
-    }
-    @GetMapping("/yukseklisans")
-    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsYuksekLisans(){
-        return this.staffService.getCovidWithStaffDetailsYuksekLisans();
-
-    }
-
-    @GetMapping("/doktora")
-    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsDoktora(){
-        return this.staffService.getCovidWithStaffDetailsDoktora();
+    @GetMapping("/soru5")
+    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffEducationDetails(String education){
+        return this.staffService.getCovidWithStaffEducationDetails(education);
 
     }
 
 
-    @GetMapping("/soru8")
+
+    @GetMapping("/soru8covidolanlar")
     public DataResult<List<Staff>> getMost3MedicineCovidStatus(){
         return this.staffService.getMost3MedicineCovidStatus();
     }
 
-    @GetMapping("/soru9")
+    @GetMapping("/soru8covidolmayanlar")
+    public DataResult<List<Staff>> getMost3MedicineNoCovidStatus(){
+        return this.staffService.getMost3MedicineNoCovidStatus();
+    }
+
+
+
+
+
+    @GetMapping("/soru9covidgeçirenler")
     public DataResult<List<StaffWithDiseaseCovidRecipeDto>> getStaffWithDiseaseCovidRecipeDetails(String medicine){
         return this.staffService.getStaffWithDiseaseCovidRecipeDetails(medicine);
     }
+
+    @GetMapping("/soru9covidgeçirmeyenler")
+    public DataResult<List<StaffWithDiseaseRecipeDto>> getStaffWithDiseaseNoCovidRecipeDetails(String medicine){
+        return this.staffService.getStaffWithDiseaseNoCovidRecipeDetails(medicine);
+    }
+
+
+
+
 
     @GetMapping("/soru10")
     public DataResult<List<StaffWithVaccineCovidDisease>> getStaffWithVaccineCovidDisease(String disease){
         return this.staffService.getStaffWithVaccineCovidDisease(disease);
     }
+
+
+
+
 
     @GetMapping("/soru11covidolanlar")
     public Float covidRateByVaccineStatus(){
@@ -83,6 +97,22 @@ public class StaffController {
     public Float covidRateByNoVaccineStatus(){
         return this.staffService.covidRateByNoVaccineStatus();
     }
+
+
+
+
+
+
+    @GetMapping("/soru19covidolan")
+    public DataResult<List<Staff>> getMostDiseaseStaff(){
+        return  this.staffService.getMostDiseaseStaff();
+    }
+
+    @GetMapping("/soru19covidolmayan")
+    public DataResult<List<Staff>> getMostDiseaseStaffNoCovid(){
+        return this.staffService.getMostDiseaseStaffNoCovid();
+    }
+
 
 
 

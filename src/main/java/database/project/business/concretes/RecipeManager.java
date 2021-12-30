@@ -41,4 +41,11 @@ public class RecipeManager implements RecipeService {
         this.recipeDao.delete(recipe);
         return new SuccessResult("Hastalık silindi");
     }
+
+    @Override
+    public SuccessDataResult<List<Recipe>> getDiseaseWithRecipe() {
+        return
+                new SuccessDataResult<List<Recipe>>(this.recipeDao.getRecipeWithDisease(),"Aşı vurulmayanlar arasında en uzun süre covid geçiren kişinin son 1 yılda geçirmiş olduğu hastalıklar ve reçeteler");
+    }
+
 }

@@ -11,4 +11,8 @@ public interface VaccineService {
     public DataResult<List<Vaccine>> getAll();
     Result add(Vaccine vaccine);
     Result delete(Vaccine vaccine);
+
+
+    DataResult<List<Float>> getBiontech();
+    DataResult<List<Float>> getSinovac();
 }

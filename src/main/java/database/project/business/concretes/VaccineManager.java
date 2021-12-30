@@ -41,4 +41,16 @@ public class VaccineManager implements VaccineService {
         this.vaccineDao.delete(vaccine);
         return new SuccessResult("Aşı bilgisi silindi");
     }
+
+    @Override
+    public DataResult<List<Float>> getBiontech() {
+        return
+                new SuccessDataResult<List<Float>>(this.vaccineDao.getBiontech(),"Biontech aşısının etkinliği");
+    }
+
+    @Override
+    public DataResult<List<Float>> getSinovac() {
+        return
+                new SuccessDataResult<List<Float>>(this.vaccineDao.getSinovac(),"Sinovac aşısının etkinliği");
+    }
 }

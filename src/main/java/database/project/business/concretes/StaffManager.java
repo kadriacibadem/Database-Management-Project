@@ -8,6 +8,7 @@ import database.project.core.utilites.results.SuccessResult;
 import database.project.dataAccess.abstracts.StaffDao;
 import database.project.dataAccess.dtos.CovidWithStaffDto;
 import database.project.dataAccess.dtos.StaffWithDiseaseCovidRecipeDto;
+import database.project.dataAccess.dtos.StaffWithDiseaseRecipeDto;
 import database.project.dataAccess.dtos.StaffWithVaccineCovidDisease;
 import database.project.entites.concretes.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,29 +47,25 @@ public class StaffManager implements StaffService {
         return new SuccessResult("Eleman silindi");
     }
 
-    // Soru 1 {
-    @Override
-    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsLisans() {
-        return
-                new SuccessDataResult<List<CovidWithStaffDto>>(this.staffDao.getCovidWithStaffDetailsLisans(), "Eğitim durumu lisans olup covid olanlar;");
-    }
+
 
     @Override
-    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsYuksekLisans() {
+    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffEducationDetails(String education) {
         return
-                new SuccessDataResult<List<CovidWithStaffDto>>(this.staffDao.getCovidWithStaffDetailsYuksekLisans(), "Eğitim durumu yüksek lisans olup covid olanlar;");
+                new SuccessDataResult<List<CovidWithStaffDto>>(this.staffDao.getCovidWithStaffEducationDetails(education), "Eğitim durumu lisans olup covid olanlar;");
     }
 
-    @Override
-    public DataResult<List<CovidWithStaffDto>> getCovidWithStaffDetailsDoktora() {
-        return
-                new SuccessDataResult<List<CovidWithStaffDto>>(this.staffDao.getCovidWithStaffDetailsDoktora(), "Eğitim durumu doktora olup covid olanlar");
-    }
 
     @Override
     public DataResult<List<StaffWithDiseaseCovidRecipeDto>> getStaffWithDiseaseCovidRecipeDetails(String medicine) {
         return
                 new SuccessDataResult<List<StaffWithDiseaseCovidRecipeDto>>(this.staffDao.getStaffWithDiseaseCovidRecipeDetails(medicine),"Belirli bir ilacı kullanıp covid geçirenler");
+    }
+
+    @Override
+    public DataResult<List<StaffWithDiseaseRecipeDto>> getStaffWithDiseaseNoCovidRecipeDetails(String medicine) {
+        return
+                new SuccessDataResult<List<StaffWithDiseaseRecipeDto>>(this.staffDao.getStaffWithDiseaseNoCovidRecipeDetails(medicine),"Belirli bir ilacı kullanıp covid geçirmeyenler");
     }
 
     @Override
@@ -84,6 +81,12 @@ public class StaffManager implements StaffService {
     }
 
     @Override
+    public SuccessDataResult<List<Staff>> getMost3MedicineNoCovidStatus() {
+        return
+                new SuccessDataResult<List<Staff>>(this.staffDao.getMost3MedicineNoCovidStatus(),"En yaygın kullanılan ilk 3 ilacı kullanıp covid olmayan elemanlar");
+    }
+
+    @Override
     public Float covidRateByVaccineStatus() {
         return
                 this.staffDao.covidRateByVaccineStatus();
@@ -93,6 +96,18 @@ public class StaffManager implements StaffService {
     public Float covidRateByNoVaccineStatus() {
         return
                 this.staffDao.covidRateByNoVaccineStatus();
+    }
+
+    @Override
+    public SuccessDataResult<List<Staff>> getMostDiseaseStaff() {
+        return
+                new SuccessDataResult<List<Staff>>(this.staffDao.getMostDiseaseStaff(),"En sık hasta olan 10 kişinin covid olanları");
+    }
+
+    @Override
+    public SuccessDataResult<List<Staff>> getMostDiseaseStaffNoCovid() {
+        return
+                new SuccessDataResult<List<Staff>>(this.staffDao.getMostDiseaseStaffNoCovid(),"En sık hasta olan 10 kişinin covid olmayanları");
     }
 
 

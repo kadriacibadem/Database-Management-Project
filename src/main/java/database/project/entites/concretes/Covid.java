@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "Covid")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","diseases","hobbies","vaccines","workingTime","staff"})
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","diseases","hobbies","vaccines","workingTime","chronicDiseases","covidSymptoms"})
 public class Covid {
 
     @Id
@@ -39,5 +39,7 @@ public class Covid {
     @ManyToOne
     @JoinColumn(name = "staffId")
     private Staff staffCovid;
+
+
 
 }

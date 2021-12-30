@@ -1,5 +1,6 @@
 package database.project.api.controllers;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import database.project.business.abstracts.WorkingTimeService;
 import database.project.core.utilites.results.DataResult;
 import database.project.core.utilites.results.Result;

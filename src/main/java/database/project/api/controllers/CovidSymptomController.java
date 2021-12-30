@@ -1,10 +1,8 @@
 package database.project.api.controllers;
 
 
-import database.project.business.abstracts.CovidService;
 import database.project.business.abstracts.CovidSymptomService;
 import database.project.core.utilites.results.DataResult;
-import database.project.dataAccess.dtos.StaffWithVaccineCovidDisease;
 import database.project.entites.concretes.CovidSymptom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +26,11 @@ public class CovidSymptomController {
     @GetMapping("/soru15")
     public DataResult<List<CovidSymptom>> getMost3SymptomOffCovid(){
         return this.covidSymptomService.getMost3SymptomOffCovid();
+    }
+
+    @GetMapping("/getAll")
+    public DataResult<List<CovidSymptom>> getAll(){
+        return this.covidSymptomService.getAll();
     }
 
 }

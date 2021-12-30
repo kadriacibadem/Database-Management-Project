@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface CovidSymptomService {
     DataResult<List<CovidSymptom>> getMost3SymptomOffCovid();
+
+    public DataResult<List<CovidSymptom>> getAll();
+
+
 }

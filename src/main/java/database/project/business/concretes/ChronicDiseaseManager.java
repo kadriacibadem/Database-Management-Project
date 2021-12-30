@@ -2,6 +2,7 @@ package database.project.business.concretes;
 
 import database.project.business.abstracts.ChronicDiseaseService;
 import database.project.dataAccess.abstracts.ChronicDiseaseDao;
+import org.joda.time.Days;
 import org.joda.time.Interval;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class ChronicDiseaseManager implements ChronicDiseaseService {
 
 
     @Override
-    public Interval timeToTurnToCovidNegativeByChronicDisease(String chronicDisease) {
+    public Integer timeToTurnToCovidNegativeByChronicDisease(String chronicDisease) {
         return
                 this.chronicDiseaseDao.timeToTurnToCovidNegativeByChronicDisease(chronicDisease);
     }
